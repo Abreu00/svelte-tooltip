@@ -8,12 +8,12 @@
 * [Properties](#properties)
 	* [active](#active)
 	* [color](#color)
+	* [tip](#tip)
 	* [directional props](#directional-props)
 		* [top](#top)
 		* [right](#right)
 		* [bottom](#bottom)
 		* [left](#left)
-	* [tip](#tip)
 * [Useful tips](#useful-tips)
 	* [changing text color](#changing-text-color)
 
@@ -50,24 +50,23 @@ The default Svelte Tooltip background-color is #757575, however you can easily c
 ```
 <SvelteTooltip tip="change the color" top color="#FFB74D">
 ```
-
-### Directional Props
-The directional props allows you to position your tooltip in relation to the slot you give to the tooltip. As mentioned above SvelteTooltip should take **exactly** one directional prop. 
-#### top
-```<SvelteTooltip tip="I'm on the top" top >```
-#### right
-```<SvelteTooltip tip="I'm on the right" right >```
-#### bottom
-```<SvelteTooltip tip="I'm on the bottom" bottom >```
-#### left
-```<SvelteTooltip tip="I'm on the left" left >```
-
-
 #### tip
 tip property is the actual text displayed inside the tooltip.
 ```
 <SvelteTooltip tip="view on github" bottom >
 ```
+
+#### Directional Props
+The directional props allows you to position your tooltip in relation to the slot you give to the tooltip. As mentioned above SvelteTooltip should take **exactly** one directional prop. 
+##### top
+```<SvelteTooltip tip="I'm on the top" top >```
+##### right
+```<SvelteTooltip tip="I'm on the right" right >```
+##### bottom
+```<SvelteTooltip tip="I'm on the bottom" bottom >```
+##### left
+```<SvelteTooltip tip="I'm on the left" left >```
+
 ### Useful tips
 #### Changing text color
 Svelte tooltip has no default way of changing it's text color, however since the tooltip component inherits the text color from it's parent. The recomended way to set the text color is by wrapping the tooltip inside a div and use the css color attribute on it.
