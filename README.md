@@ -1,93 +1,86 @@
-*Looking for a shareable component template? Go here --> [sveltejs/component-template](https://github.com/sveltejs/component-template)*
+# Svelte Tooltip
 
----
+### Table of contents
 
-# svelte app
+* [Getting Started](#getting-started)
+	* [Instalation](#instalation)
+	* [Usage](#usage)
+* [Properties](#properties)
+	* [active](#active)
+	* [color](#color)
+	* [directional props](#directional-props)
+		* [top](#top)
+		* [right](#right)
+		* [bottom](#bottom)
+		* [left](#left)
+	* [tip](#tip)
+* [Useful tips](#useful-tips)
+	* [changing text color](#changing-text-color)
 
-This is a project template for [Svelte](https://svelte.dev) apps. It lives at https://github.com/sveltejs/template.
+### Getting Started
+#### Instalation
+To install Svelte Tooltip into your svelte project use your package manager npm/yarn run one of the following commands on your terminal.
 
-To create a new project based on this template using [degit](https://github.com/Rich-Harris/degit):
+```npm install svelte-tooltip``` or ```yarn add svelte-tooltip```
 
-```bash
-npx degit sveltejs/template svelte-app
-cd svelte-app
+#### Usage
+Svelte Tooltip is really simple to use, first you need to import it on a script section
+```
+<script>
+	import SvelteTooltip from 'svelte-tooltip';
+</script>
+```
+and then use it on your component html template, passing as slot whatever you want to trigger the tooltip when hovered, usually these is going to be a button, icon, image, or a link.
+``` 
+<SvelteTooltip tip="view on github" bottom >
+	<button>Click me</button>
+</SvelteTooltip>
+```
+**Important: ** make sure to allways use one and just one directional prop, top, right, bottom, or left , those will position the tooltip according to the slot will passed, and not setting any or setting multiple will cause undefined behavior.
+
+### Properties
+#### active
+The active allows you to programmatically display a tooltip rather than waiting to a user hover, it's expected type is boolean and it defaults to false.
+
+```<SvelteTooltip tip="this is visible" left active>```
+
+#### color
+
+The default Svelte Tooltip background-color is #757575, however you can easily change that with the color property, it's type is String and any css valid color is also valid for this property.
+```
+<SvelteTooltip tip="change the color" top color="#FFB74D">
 ```
 
-*Note that you will need to have [Node.js](https://nodejs.org) installed.*
+### Directional Props
+The directional props allows you to position your tooltip in relation to the slot you give to the tooltip. As mentioned above SvelteTooltip should take **exactly** one directional prop. 
+#### top
+```<SvelteTooltip tip="I'm on the top" top >```
+#### right
+```<SvelteTooltip tip="I'm on the right" right >```
+#### bottom
+```<SvelteTooltip tip="I'm on the bottom" bottom >```
+#### left
+```<SvelteTooltip tip="I'm on the left" left >```
 
 
-## Get started
-
-Install the dependencies...
-
-```bash
-cd svelte-app
-npm install
+#### tip
+tip property is the actual text displayed inside the tooltip.
 ```
-
-...then start [Rollup](https://rollupjs.org):
-
-```bash
-npm run dev
+<SvelteTooltip tip="view on github" bottom >
 ```
-
-Navigate to [localhost:5000](http://localhost:5000). You should see your app running. Edit a component file in `src`, save it, and reload the page to see your changes.
-
-By default, the server will only respond to requests from localhost. To allow connections from other computers, edit the `sirv` commands in package.json to include the option `--host 0.0.0.0`.
-
-
-## Building and running in production mode
-
-To create an optimised version of the app:
-
-```bash
-npm run build
+### Useful tips
+#### Changing text color
+Svelte tooltip has no default way of changing it's text color, however since the tooltip component inherits the text color from it's parent. The recomended way to set the text color is by wrapping the tooltip inside a div and use the css color attribute on it.
 ```
+<style>
+.wrapper {
+  color: #fafafa;
+}
+</style>
 
-You can run the newly built app with `npm run start`. This uses [sirv](https://github.com/lukeed/sirv), which is included in your package.json's `dependencies` so that the app will work when you deploy to platforms like [Heroku](https://heroku.com).
-
-
-## Single-page app mode
-
-By default, sirv will only respond to requests that match files in `public`. This is to maximise compatibility with static fileservers, allowing you to deploy your app anywhere.
-
-If you're building a single-page app (SPA) with multiple routes, sirv needs to be able to respond to requests for *any* path. You can make it so by editing the `"start"` command in package.json:
-
-```js
-"start": "sirv public --single"
-```
-
-
-## Deploying to the web
-
-### With [now](https://zeit.co/now)
-
-Install `now` if you haven't already:
-
-```bash
-npm install -g now
-```
-
-Then, from within your project folder:
-
-```bash
-cd public
-now deploy --name my-project
-```
-
-As an alternative, use the [Now desktop client](https://zeit.co/download) and simply drag the unzipped project folder to the taskbar icon.
-
-### With [surge](https://surge.sh/)
-
-Install `surge` if you haven't already:
-
-```bash
-npm install -g surge
-```
-
-Then, from within your project folder:
-
-```bash
-npm run build
-surge public my-project.surge.sh
+<div class="wrapper">
+	<SvelteTooltip tip="white text" bottom  color="#EF6C00">
+		<button>Click me</button>
+	</SvelteTooltip>
+</div>
 ```
