@@ -79,6 +79,6 @@
     class:top
     style={style}
   >
-    {tip}
+    {@html tip}
   </span>
 </div>
