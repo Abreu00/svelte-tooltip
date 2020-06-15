@@ -3,7 +3,7 @@
 ### Table of contents
 
 * [Getting Started](#getting-started)
-	* [Instalation](#instalation)
+	* [Installation](#instalation)
 	* [Usage](#usage)
 * [Properties](#properties)
 	* [active](#active)
@@ -18,7 +18,7 @@
 	* [changing text color](#changing-text-color)
 
 ### Getting Started
-#### Instalation
+#### Installation
 To install Svelte Tooltip into your svelte project use your package manager npm/yarn run one of the following commands on your terminal.
 
 ```npm install svelte-tooltip``` or ```yarn add svelte-tooltip```
@@ -69,7 +69,7 @@ The directional props allows you to position your tooltip in relation to the slo
 
 ### Useful tips
 #### Changing text color
-Svelte tooltip has no default way of changing it's text color, however since the tooltip component inherits the text color from it's parent. The recomended way to set the text color is by wrapping the tooltip inside a div and use the css color attribute on it.
+Svelte tooltip has no default way of changing it's text color, however since the tooltip component inherits the text color from its parent. The recomended way to set the text color is by wrapping the tooltip inside a div and use the css color attribute on it.
 ```
 <style>
 .wrapper {
