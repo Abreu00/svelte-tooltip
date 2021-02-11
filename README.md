@@ -21,7 +21,7 @@
 #### Installation
 To install Svelte Tooltip into your svelte project use your package manager npm/yarn run one of the following commands on your terminal.
 
-```npm install svelte-tooltip``` or ```yarn add svelte-tooltip```
+```npm install -D svelte-tooltip``` or ```yarn add -D svelte-tooltip```
 
 #### Usage
 Svelte Tooltip is really simple to use, first you need to import it on a script section
